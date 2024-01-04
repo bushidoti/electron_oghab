@@ -1,4 +1,4 @@
-appId: com.example.ElectronTailwindReactTemplate
+appId: com.example.ElectronOghab
 
 publish:
     provider: github

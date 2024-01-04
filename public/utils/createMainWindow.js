@@ -6,21 +6,19 @@ const config = require("./config");
 
 exports.createMainWindow = async () => {
 	const window = new BrowserWindow({
-		width: 800,
-		height: 600,
+		center:true,
+		width:1000,
+		height :800,
 		webPreferences: {
 			nodeIntegration: true,
 			enableRemoteModule: true,
 			devTools: config.isDev,
 			contextIsolation: false,
 		},
-		frame: false,
 		icon: config.icon,
 		title: config.appName,
 	});
-
 	remote.enable(window.webContents);
-
 	await window.loadURL(
 		config.isDev
 			? "http://localhost:3000"

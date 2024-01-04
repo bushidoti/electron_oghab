@@ -16,41 +16,32 @@ exports.createTray = () => {
 				},
 			},
 			{
-				label: "Creator",
+				label: "سازنده",
 				submenu: [
 					{
-						label: "GitHub @barisbored",
+						label: "گیت @bushidoti",
 						click: () => {
-							shell.openExternal("https://github.com/barisbored");
+							shell.openExternal("https://github.com/bushidoti");
 						},
 					},
 					{
-						label: "E-Mail hi@338.rocks",
+						label: "ایمیل titanxl79@gmail.com",
 						click: () => {
-							shell.openExternal("mailto:hi@338.rocks");
+							shell.openExternal("mailto:titanxl79@gmail.com");
 						},
 					},
 					{
-						label: "Website",
+						label: "وب سایت",
 						click: () => {
-							shell.openExternal("https://338.rocks");
+							shell.openExternal("https://digitkey.ir");
 						},
 					},
 				],
 			},
 			{
-				label: "Send Notification",
-				click: () =>
-					showNotification(
-						"This Notification Comes From Tray",
-						"Hello, world!",
-					),
-			},
-			{
-				label: "Quit",
+				label: "خروج",
 				click: () => {
 					config.isQuiting = true;
-
 					app.quit();
 				},
 			},

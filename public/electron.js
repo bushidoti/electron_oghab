@@ -2,7 +2,6 @@ const { app, BrowserWindow, ipcMain } = require("electron");
 const { autoUpdater } = require("electron-updater");
 const { createTray } = require("./utils/createTray");
 const { createMainWindow } = require("./utils/createMainWindow");
-const { createPopupWindow } = require("./utils/createPopupWindow");
 const { showNotification } = require("./utils/showNotification");
 const AutoLaunch = require("auto-launch");
 const remote = require("@electron/remote/main");
@@ -22,11 +21,10 @@ if (!config.isDev) {
 app.on("ready", async () => {
 	config.mainWindow = await createMainWindow();
 	config.tray = createTray();
-	config.popupWindow = await createPopupWindow();
 
 	showNotification(
 		config.appName,
-		"Application running on background! See application tray.",
+		"برنامه در پس زمینه در حال اجرا است. لایه برنامه را مشاهده کنید!",
 	);
 });
 

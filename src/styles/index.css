@@ -12,3 +12,91 @@
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: #b5f5ec;
+}
+
+.message-login {
+    direction: rtl;
+}
+
+
+.table-expired-rows {
+    background-color: #fff1f0;
+}
+
+.register-form-personal {
+    display: inline-block;
+    margin: 8px;
+    width: 233px;
+}
+
+@media print {
+    @page {
+        size: landscape;
+        margin: 4mm;
+    }
+}
+
+.table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.th {
+    border: 1px solid black;
+
+}
+
+.td {
+    border: 1px solid black;
+    text-align: center;
+
+
+}
+
+.disabled-row {
+  background-color: #dcdcdc;
+  pointer-events: none;
+}
+
+
+.loading {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: hsl(0 0% 90%);
+  font-family:  'Google Sans', sans-serif, system-ui;
+}
+
