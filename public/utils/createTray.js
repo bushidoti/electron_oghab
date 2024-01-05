@@ -9,7 +9,7 @@ exports.createTray = () => {
 	t.setContextMenu(
 		Menu.buildFromTemplate([
 			{
-				label: "Show App",
+				label: "نمایش برنامه",
 				click: () => {
 					if (!config.mainWindow.isVisible())
 						config.mainWindow.show();
