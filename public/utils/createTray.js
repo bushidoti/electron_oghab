@@ -1,5 +1,4 @@
 const { app, Tray, Menu, shell } = require("electron");
-const { showNotification } = require("./showNotification");
 const config = require("./config");
 
 exports.createTray = () => {

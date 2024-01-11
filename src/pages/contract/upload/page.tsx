@@ -5,6 +5,12 @@ import axios from "axios";
 import {Context} from "../../../context";
 import {useNavigate} from "react-router-dom";
 
+interface ButtonState {
+    upload?: boolean;
+    sub?: boolean;
+    type?: boolean;
+    scan?: boolean;
+}
 export default function UploadContract() {
     const [subDocument, setSubDocument] = useState<object[]>([])
     const [scannedObject, setScannedObject] = useState<object>({})
@@ -13,12 +19,42 @@ export default function UploadContract() {
     const [loading, setLoading] = useState<boolean>(false);
     const context = useContext(Context)
     const navigate = useNavigate();
-
+    const [scanButton, setScanButton] = useState<ButtonState>(
+        {
+            upload:true,
+            sub:true,
+            type:true,
+            scan:true,
+        }
+    );
     const options = [
         {value: 'قرارداد', label: 'قرارداد'},
         {value: 'تضامین', label: 'تضامین'},
     ];
     const onValuesChange = (changedValues: any, allValues: any) => {
+
+           if (allValues.document.name) {
+                  setScanButton((prevState) => ({
+                      ...prevState,
+                      scan: false,
+                    }))
+            }
+
+
+                if (allValues.document.type) {
+                     setScanButton((prevState) => ({
+                          ...prevState,
+                          sub: false,
+                        }))
+            }
+
+                if (allValues.document.sub) {
+                      setScanButton((prevState) => ({
+                          ...prevState,
+                          upload: false,
+                        }))
+            }
+
         if (changedValues.document.type) {
             if (allValues.document.type === 'قرارداد') {
                 setSubDocument([
@@ -176,7 +212,7 @@ export default function UploadContract() {
                         {
                             type: 'search',
                             value: data.id,
-                            label: data.name,
+                            label: data.name + ' شماره ثبت ' + data.id,
                         }
                     )))}
                 />
@@ -192,25 +228,25 @@ export default function UploadContract() {
                     }
                 }}>
                     <Form.Item>
-                        <Button type={"primary"} onClick={scanImage}>اسکن</Button>
+                        <Button type={"primary"} onClick={scanImage} disabled={scanButton.scan}>اسکن</Button>
                     </Form.Item>
                 </ConfigProvider>
                 <Form.Item>
-                    <Button type={"primary"} htmlType={"submit"} loading={loading} danger={loading}>بارگذاری</Button>
+                    <Button type={"primary"} htmlType={"submit"} loading={loading} danger={loading} disabled={scanButton.upload}>بارگذاری</Button>
                 </Form.Item>
                 <Form.Item
                     style={{width: 200}}
                     name={['document', 'type']}
                     rules={[{required: true, message: 'نوع مدرک را انتخاب کنید!'}]}
                 >
-                    <Select placeholder="نوع مدرک" options={options}/>
+                    <Select placeholder="نوع مدرک" options={options} disabled={!context.compressed}/>
                 </Form.Item>
                 <Form.Item
                     style={{width: 200}}
                     name={['document', 'sub']}
                     rules={[{required: true, message: 'مدرک مورد نظر را انتخاب کنید!'}]}
                 >
-                    <Select placeholder="مدرک مورد نظر" options={subDocument}/>
+                    <Select placeholder="مدرک مورد نظر" disabled={scanButton.sub} options={subDocument}/>
 
                 </Form.Item>
             </Space.Compact>
