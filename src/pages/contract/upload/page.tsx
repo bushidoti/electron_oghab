@@ -32,8 +32,7 @@ export default function UploadContract() {
         {value: 'تضامین', label: 'تضامین'},
     ];
     const onValuesChange = (changedValues: any, allValues: any) => {
-
-           if (allValues.document.name) {
+                if (allValues.document.name) {
                   setScanButton((prevState) => ({
                       ...prevState,
                       scan: false,
@@ -55,6 +54,7 @@ export default function UploadContract() {
                         }))
             }
 
+
         if (changedValues.document.type) {
             if (allValues.document.type === 'قرارداد') {
                 setSubDocument([
@@ -68,11 +68,24 @@ export default function UploadContract() {
                     {value: 'صفحه 8', label: 'صفحه 8'},
                     {value: 'صفحه 9', label: 'صفحه 9'},
                     {value: 'صفحه 10', label: 'صفحه 10'},
+                    {value: 'صفحه 11', label: 'صفحه 10'},
+                    {value: 'صفحه 12', label: 'صفحه 10'},
+                    {value: 'صفحه 13', label: 'صفحه 10'},
+                    {value: 'صفحه 14', label: 'صفحه 10'},
+                    {value: 'صفحه 15', label: 'صفحه 10'},
+                    {value: 'صفحه 16', label: 'صفحه 10'},
+                    {value: 'صفحه 17', label: 'صفحه 10'},
+                    {value: 'صفحه 18', label: 'صفحه 10'},
+                    {value: 'صفحه 19', label: 'صفحه 10'},
+                    {value: 'صفحه 20', label: 'صفحه 10'},
                 ])
             } else if (allValues.document.type === 'تضامین') {
                 setSubDocument([
                     {value: 'ضمانت اول', label: 'ضمانت اول'},
                     {value: 'ضمانت دوم', label: 'ضمانت دوم'},
+                    {value: 'ضمانت سوم', label: 'ضمانت سوم'},
+                    {value: 'ضمانت چهارم', label: 'ضمانت چهارم'},
+                    {value: 'ضمانت پنجم', label: 'ضمانت پنجم'},
                 ])
             }
         } else if (changedValues.document.sub) {
@@ -85,7 +98,19 @@ export default function UploadContract() {
                 setScannedObject({
                     doc_bail_2: context.compressed
                 })
-            }  else if (allValues.document.sub === 'صفحه 1') {
+            } else if (allValues.document.sub === 'ضمانت سوم') {
+                setScannedObject({
+                    doc_bail_3: context.compressed
+                })
+            } else if (allValues.document.sub === 'ضمانت چهارم') {
+                setScannedObject({
+                    doc_bail_4: context.compressed
+                })
+            } else if (allValues.document.sub === 'ضمانت پنجم') {
+                setScannedObject({
+                    doc_bail_5: context.compressed
+                })
+            }else if (allValues.document.sub === 'صفحه 1') {
                 setScannedObject({
                     doc_1: context.compressed
                 })
@@ -124,6 +149,46 @@ export default function UploadContract() {
             } else if (allValues.document.sub === 'صفحه 10') {
                 setScannedObject({
                     doc_10: context.compressed
+                })
+            }else if (allValues.document.sub === 'صفحه 11') {
+                setScannedObject({
+                    doc_11: context.compressed
+                })
+            }else if (allValues.document.sub === 'صفحه 12') {
+                setScannedObject({
+                    doc_12: context.compressed
+                })
+            }else if (allValues.document.sub === 'صفحه 13') {
+                setScannedObject({
+                    doc_13: context.compressed
+                })
+            }else if (allValues.document.sub === 'صفحه 14') {
+                setScannedObject({
+                    doc_14: context.compressed
+                })
+            }else if (allValues.document.sub === 'صفحه 15') {
+                setScannedObject({
+                    doc_15: context.compressed
+                })
+            }else if (allValues.document.sub === 'صفحه 16') {
+                setScannedObject({
+                    doc_16: context.compressed
+                })
+            }else if (allValues.document.sub === 'صفحه 17') {
+                setScannedObject({
+                    doc_17: context.compressed
+                })
+            }else if (allValues.document.sub === 'صفحه 18') {
+                setScannedObject({
+                    doc_18: context.compressed
+                })
+            }else if (allValues.document.sub === 'صفحه 19') {
+                setScannedObject({
+                    doc_19: context.compressed
+                })
+            }else if (allValues.document.sub === 'صفحه 20') {
+                setScannedObject({
+                    doc_20: context.compressed
                 })
             }
         }
