@@ -5,7 +5,9 @@ export const Context = createContext({
     },
      setCurrentProductDoc: (_value: string) => {
     },
-    setCurrentPersonal: (_value: number) => {
+    setCompressed: (_value: string) => {
+    }
+    ,setCurrentPersonal: (_value: number) => {
     },
     setCurrentProperty: (_value: number) => {
     },

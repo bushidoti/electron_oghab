@@ -231,6 +231,7 @@ const Router: React.FC = () => {
                     setCurrentPropertyTable,
                     currentPropertyTable,
                     currentPropertyForm,
+                    setCompressed,
                     setCurrentPropertyForm,
                     currentProductFactor,
                     setPropertyTab,
