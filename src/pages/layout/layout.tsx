@@ -16,24 +16,24 @@ const LayoutForm: React.FC = () => {
     const context = useContext(Context)
 
     return (
-            <Layout >
-                  <Sider breakpoint="xl" collapsedWidth="0">
-                    <div className='flex flex-col items-center m-5'>
-                        <Avatar className='bg-sky-500' size={100} icon={<UserOutlined/>} />
-                        <p className='text-gray-50'>{context.fullName}</p>
-                        <p className='text-gray-50'>{context.office}</p>
+            <Layout>
+              <Sider breakpoint="xl" collapsedWidth="0">
+                <div className='flex flex-col items-center m-5'>
+                    <Avatar className='bg-sky-500' size={100} icon={<UserOutlined />} />
+                    <p className='text-gray-50'>{context.fullName}</p>
+                    <p className='text-gray-50'>{context.office}</p>
+                </div>
+                <MenuLayout/>
+            </Sider>
+            <Layout>
+                <Content className='p-2 h-[100%]' style={{overflow: 'initial'}}>
+                    <div className='bg-white rounded min-h-[100vh]' style={{padding: 24}}>
+                        <RouteLayout/>
                     </div>
-                    <MenuLayout/>
-                </Sider>
-                <Layout>
-                    <Content className='me-8 p-2 h-[100vh]' style={{overflow: 'initial'}}>
-                        <div className='bg-white rounded' style={{padding: 24}}>
-                            <RouteLayout/>
-                        </div>
-                    </Content>
-                    <Footer style={{textAlign: 'center'}}>تمامی حقوق برای شرکت digitkey می باشد.</Footer>
-                </Layout>
+                </Content>
+                <Footer style={{textAlign: 'center'}}>تمامی حقوق برای شرکت digitkey می باشد.</Footer>
             </Layout>
+        </Layout>
     );
 };
 
