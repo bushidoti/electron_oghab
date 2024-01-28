@@ -48,29 +48,25 @@ const Router: React.FC = () => {
 
     useEffect(() => {
         (async () => {
-            if (isLogged) {
-                const {data} = (await axios.get(`${Url}/permission/`, {
+                await axios.get(`${Url}/permission/`, {
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
                     }
-                }));
-                setPermission(data.message);
-            }
-        })()
-    }, [isLogged]);
-
-    useEffect(() => {
-        (async () => {
-            if (isLogged) {
-                const {data} = (await axios.get(`${Url}/permission/`, {
-                    headers: {
-                        'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+                }).then(response => {
+                    return response
+                }).then(async data => {
+                    setPermission(data.data.message);
+                }).catch((error) => {
+                    if (error.request.status === 401) {
+                        localStorage.removeItem("access_token");
+                        localStorage.removeItem("refresh_token");
+                        setLogged(false)
+                        navigate('/login')
                     }
-                }));
-                setPermission(data.message);
-            }
+                }).finally(() => setLoading(false)
+                )
         })()
-    }, [isLogged]);
+    }, [navigate]);
 
 
     useEffect(() => {
