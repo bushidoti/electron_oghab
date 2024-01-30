@@ -382,6 +382,7 @@ const OutputForm: React.FC = () => {
                                                                                 scale: data.data[0].scale,
                                                                                 category: data.data[0].category,
                                                                                 name: data.data[0].name,
+                                                                                left_stock: data.data[0].left_stock,
                                                                             }
                                                                         }
                                                                     });
@@ -401,7 +402,7 @@ const OutputForm: React.FC = () => {
                                                 />
                                             </Form.Item>
                                             <Form.Item name={[subField.name, 'output']} rules={[{required: true,validator: (_: any, value) => {
-                                                if (value <= form.getFieldValue(['products'])[subField.key].left_stock[0].left_stock) {
+                                                if (value <= form.getFieldValue(['products'])[subField.key].left_stock) {
                                                   return Promise.resolve();
                                                 }else {
                                                     return Promise.reject(new Error('عدم موجودی کافی'));
